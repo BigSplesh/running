@@ -5,6 +5,10 @@ let h3 = document.getElementById("h3")
 let rock = document.getElementById("rock")
 let spikes = document.getElementById("spikes")
 let birds = document.getElementById("fliy")
+let life1 = document.getElementById("life1")
+let life2 = document.getElementById("life2")
+let life3 = document.getElementById("life3")
+let hp = 3
 let birdsDist = 0
 let rockDist = 0
 let score = 0
@@ -34,6 +38,8 @@ document.body.onkeydown = function (event) {
 }
 newButton.onclick = function (event) {
     if (newButton.innerHTML == "Start") {
+        rockDist = -Math.random() * 1600 - rock.offsetWidth
+        rock.style.opacity = 1
         gameInterval = setInterval(() => {
             score = score + 1
             speed = speed + 0.012
@@ -43,8 +49,10 @@ newButton.onclick = function (event) {
             h3.innerHTML = "Score: " + score
             // spikes.style.right=score*20+"px"
             rock.style.right = rockDist + "px"
-            birds.style.right=birdsDist+"px"
+            birds.style.right = birdsDist + "px"
             if (rockDist > window.innerWidth) {
+                rock.style.transition = "0s"
+                rock.style.opacity="1"
                 rockDist = -Math.random() * 1600 - rock.offsetWidth
             }
             if (birdsDist > window.innerWidth) {
@@ -54,7 +62,19 @@ newButton.onclick = function (event) {
                 clearInterval(gameInterval)
             }
             if (rockDist > 1000 && boyJump == "24%" && rockDist < 1100) {
+                rock.style.transition = "0.4s"
                 clearInterval(gameInterval)
+                rock.style.opacity = 0
+                hp = hp - 1
+                if(hp==2){
+                    life3.remove() 
+                }
+                else if(hp==1){
+                    life2.remove()
+                }
+                else if(hp==0){
+                    life1.remove()
+                }
             }
         }, 100);
         newButton.innerHTML = "Stop"

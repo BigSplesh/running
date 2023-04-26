@@ -57,7 +57,7 @@
     width: 205px;
     bottom: 19%;
     right: 0%;
-
+   transition: 0.4s;
 }
 
 #spikes {
@@ -113,4 +113,22 @@ h3 {
     width: 500px;
     bottom:36% ;
     right: 0%;
+}
+#life1{
+    position: fixed;
+    width: 35px;
+    bottom: 20px;
+    left: 15%;
+}
+#life2{
+    position: fixed;
+    width: 35px;
+    bottom: 20px;
+    left: 20%;
+}
+#life3{
+    position: fixed;
+    width: 35px;
+    bottom: 20px;
+    left: 25%;
 }
