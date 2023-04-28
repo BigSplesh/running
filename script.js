@@ -40,6 +40,8 @@ newButton.onclick = function (event) {
     if (newButton.innerHTML == "Start") {
         rockDist = -Math.random() * 1600 - rock.offsetWidth
         rock.style.opacity = 1
+        birdsDist = -Math.random() * 1600 - birds.offsetWidth
+        birds.style.opacity = 1
         gameInterval = setInterval(() => {
             score = score + 1
             speed = speed + 0.012
@@ -52,27 +54,46 @@ newButton.onclick = function (event) {
             birds.style.right = birdsDist + "px"
             if (rockDist > window.innerWidth) {
                 rock.style.transition = "0s"
-                rock.style.opacity="1"
+                rock.style.opacity = "1"
                 rockDist = -Math.random() * 1600 - rock.offsetWidth
             }
             if (birdsDist > window.innerWidth) {
                 birdsDist = -Math.random() * 1600 - birds.offsetWidth
+                birds.style.transition = "0s"
+                birds.style.opacity = "1"
             }
             if (birdsDist > 1000 && boyJump == "50%" && birdsDist < 1100) {
-                clearInterval(gameInterval)
-            }
-            if (rockDist > 1000 && boyJump == "24%" && rockDist < 1100) {
                 rock.style.transition = "0.4s"
                 clearInterval(gameInterval)
                 rock.style.opacity = 0
+
+                birds.style.transition = "0.4s"
+                birds.style.opacity = 0
                 hp = hp - 1
-                if(hp==2){
-                    life3.remove() 
+                if (hp == 2) {
+                    life3.remove()
                 }
-                else if(hp==1){
+                else if (hp == 1) {
                     life2.remove()
                 }
-                else if(hp==0){
+                else if (hp == 0) {
+                    life1.remove()
+                }
+            }
+            if (rockDist > 1000 && boyJump == "24%" && rockDist < 1100) {
+                rock.style.transition = "0.4s"
+                birds.style.transition = "0.4s"
+                clearInterval(gameInterval)
+                rock.style.opacity = 0
+                birds.style.opacity = 0
+                hp = hp - 1
+                if (hp == 2) {
+                    life3.remove()
+                }
+                else if (hp == 1) {
+                    life2.remove()
+                }
+                else if (hp == 0) {
                     life1.remove()
                 }
             }

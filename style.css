@@ -56,16 +56,16 @@
     position: fixed;
     width: 205px;
     bottom: 19%;
-    right: 0%;
+    right: -205px;
    transition: 0.4s;
 }
 
-#spikes {
+/* #spikes {
     position: fixed;
     width: 200px;
     bottom: 24%;
     right: 0%;
-}
+} */
 
 #h1 {
     text-align: center;
@@ -112,7 +112,8 @@ h3 {
     position: fixed;
     width: 500px;
     bottom:36% ;
-    right: 0%;
+    right: -505px;
+    transition: 0.4s;
 }
 #life1{
     position: fixed;
